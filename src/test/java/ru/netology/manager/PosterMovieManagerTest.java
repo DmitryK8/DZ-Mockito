@@ -55,17 +55,31 @@ public class PosterMovieManagerTest {
     }
 
     @Test
+    public void shouldListOfMovies() {
+
+        PosterManager one = new PosterManager("Movie1");
+        PosterManager two = new PosterManager("Movie2");
+        PosterManager three = new PosterManager("Movie3");
+
+        manager.addMovie(one);
+        manager.addMovie(two);
+        manager.addMovie(three);
+
+        assertArrayEquals(new PosterManager[]{three, two, one}, manager.listMovies(3));
+    }
+
+    @Test
     public void shouldLastTenMovies() {
-        PosterManager one = new PosterManager("MovieOne");
-        PosterManager two = new PosterManager("MovieTwo");
-        PosterManager three = new PosterManager("MovieThree");
-        PosterManager four = new PosterManager("MovieFour");
-        PosterManager five = new PosterManager("MovieFive");
-        PosterManager six = new PosterManager("MovieSix");
-        PosterManager seven = new PosterManager("MovieSeven");
-        PosterManager eight = new PosterManager("MovieEight");
-        PosterManager nine = new PosterManager("MovieNine");
-        PosterManager ten = new PosterManager("MovieTen");
+        PosterManager one = new PosterManager("Movie1");
+        PosterManager two = new PosterManager("Movie2");
+        PosterManager three = new PosterManager("Movie3");
+        PosterManager four = new PosterManager("Movie4");
+        PosterManager five = new PosterManager("Movie5");
+        PosterManager six = new PosterManager("Movie6");
+        PosterManager seven = new PosterManager("Movie7");
+        PosterManager eight = new PosterManager("Movie8");
+        PosterManager nine = new PosterManager("Movie9");
+        PosterManager ten = new PosterManager("Movie10");
 
         manager.addMovie(one);
         manager.addMovie(two);
@@ -81,6 +95,63 @@ public class PosterMovieManagerTest {
         assertArrayEquals(new PosterManager[] {ten, nine, eight, seven, six, five, four, three, two, one}, manager.listMovies(10));
     }
 
+    @Test
+    public void shouldListOfMoviesMoreTen() {
+        PosterManager one = new PosterManager("Movie1");
+        PosterManager two = new PosterManager("Movie2");
+        PosterManager three = new PosterManager("Movie3");
+        PosterManager four = new PosterManager("Movie4");
+        PosterManager five = new PosterManager("Movie5");
+        PosterManager six = new PosterManager("Movie6");
+        PosterManager seven = new PosterManager("Movie7");
+        PosterManager eight = new PosterManager("Movie8");
+        PosterManager nine = new PosterManager("Movie9");
+        PosterManager ten = new PosterManager("Movie10");
+        PosterManager eleven = new PosterManager("Movie11");
+        PosterManager twelve = new PosterManager("Movie12");
 
+        manager.addMovie(one);
+        manager.addMovie(two);
+        manager.addMovie(three);
+        manager.addMovie(four);
+        manager.addMovie(five);
+        manager.addMovie(six);
+        manager.addMovie(seven);
+        manager.addMovie(eight);
+        manager.addMovie(nine);
+        manager.addMovie(ten);
+        manager.addMovie(eleven);
+        manager.addMovie(twelve);
+
+        assertArrayEquals(new PosterManager[]{twelve, eleven, ten, nine, eight, seven, six, five, four, three}, manager.listMovies(12));
+    }
+
+    @Test
+    public void shouldListOfFilmFrom5() {
+        PosterMovieManager manager = new PosterMovieManager(5);
+        PosterManager one = new PosterManager("Movie1");
+        PosterManager two = new PosterManager("Movie2");
+        PosterManager three = new PosterManager("Movie3");
+        PosterManager four = new PosterManager("Movie4");
+        PosterManager five = new PosterManager("Movie5");
+        PosterManager six = new PosterManager("Movie6");
+        PosterManager seven = new PosterManager("Movie7");
+        PosterManager eight = new PosterManager("Movie8");
+        PosterManager nine = new PosterManager("Movie9");
+        PosterManager ten = new PosterManager("Movie10");
+
+        manager.addMovie(one);
+        manager.addMovie(two);
+        manager.addMovie(three);
+        manager.addMovie(four);
+        manager.addMovie(five);
+        manager.addMovie(six);
+        manager.addMovie(seven);
+        manager.addMovie(eight);
+        manager.addMovie(nine);
+        manager.addMovie(ten);
+
+        assertArrayEquals(new PosterManager[]{ten, nine, eight, seven, six}, manager.listMovies(5));
+    }
 }
 
